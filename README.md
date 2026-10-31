@@ -4,6 +4,25 @@
 
 ## 运行
 
+### VS Code 实时预览（已配置）
+
+请直接把本目录作为 VS Code 工作区打开，不要打开它的上一级 `outputs` 目录。
+
+- Microsoft Live Preview：`http://127.0.0.1:3000/index.html`
+- Live Server：`http://127.0.0.1:5500/`
+- Live Preview 会在编辑器右侧内嵌显示，并在保存代码后自动刷新。
+- 在内嵌预览右上角菜单选择“开发人员工具”（或按 `F12`），可用元素选择器定位 DOM 和对应 CSS。
+
+工作区配置保存在 `.vscode/settings.json`。Live Preview 固定使用 3000 端口，Live Server 固定使用 5500 端口，避免两者冲突。
+
+### 学习时点击代码定位页面（已安装 HTML Live Highlighter）
+
+当前 VS Code 左侧是 **HTML Live Highlighter** 预览，右侧是 `index.html`。在右侧把光标放到一个 HTML 标签上，左侧会自动滚动到相应区域并画蓝色高亮框；例如点击 `index.html` 中的 `<div class="trip-grid">` 会定位到套餐卡片区域。预览使用本机 `http://127.0.0.1:3131/`，和上面的 3000、5500 端口各自独立。
+
+重新打开 VS Code 后，在 `index.html` 中使用 `Ctrl+Shift+P`，运行 `HTML Highlighter: Open Preview` 即可恢复这个联动窗口。它定位 HTML 中直接写出的标签；`trip-grid` 内的具体卡片、`site-header` 内的导航是 JavaScript 运行后生成的，不能从单个卡片反向定位到 `index.html` 的某一行，需查看 `js/data.js` 和 `js/components.js`。
+
+### 其他本地运行方式
+
 在本目录打开终端：
 
 ```powershell
@@ -33,6 +52,7 @@ node tests/check-site.mjs
 
 - 表单仅进行浏览器端校验，不发送数据；成功提示会明确说明这一点。
 - 图片来自 Unsplash 远程 CDN，首次打开需要联网。
+- Google Fonts 也通过远程网络加载；断网时会使用系统回退字体。
 - 本项目是独立学习实现，不包含 Webflow 商业模板的私有工程或原始素材。
 - 尚未执行 GitHub 推送、Cloudflare Pages 发布或域名绑定。
 

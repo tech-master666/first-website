@@ -1,0 +1,10 @@
+{
+  "liveServer.settings.root": "/",
+  "liveServer.settings.port": 5500,
+  "livePreview.serverRoot": ".",
+  "livePreview.portNumber": 3000,
+  "livePreview.defaultPreviewPath": "/index.html",
+  "livePreview.autoRefreshPreview": "On All Changes in Editor",
+  "livePreview.openPreviewTarget": "Embedded Preview",
+  "livePreview.useIntegratedBrowser": true
+}
