@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Xplore — immersive, considered journeys shaped by local knowledge.">
+  <title>Xplore — Journeys, not just destinations</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body id="top">
+  <main class="page-main">
+    <section class="hero">
+      <site-header theme="light"></site-header>
+      <div class="hero__inner shell">
+        <p class="hero__label reveal">The best place to start your adventure</p>
+        <h1 class="hero__title reveal"><span>Embark on <em>journeys,</em></span><span>not just <em>destinations.</em></span></h1>
+        <div class="hero__bottom reveal">
+          <p class="hero__copy">Unlock diverse cultures, vast landscapes and meaningful encounters through journeys designed with care.</p>
+          <a class="pill pill--light" href="packages.html">Explore journeys <span>↗</span></a>
+          <a class="hero__scroll" href="#packages">Scroll</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="packages">
+      <div class="shell">
+        <div class="section-intro reveal">
+          <div><span class="eyebrow">Selected journeys</span><h2 class="section-title">Must <em>experience</em><br>packages</h2></div>
+          <p class="section-intro__copy">Carefully paced itineraries that leave room for surprise, solitude and the generous knowledge of people who call each place home.</p>
+        </div>
+        <div class="trip-grid" data-trips data-limit="3"></div>
+        <div class="section-action"><a class="pill" href="packages.html">See all nine trips <span>↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="section section--gray">
+      <div class="shell">
+        <div class="section-intro reveal">
+          <div><span class="eyebrow">What guides us</span><h2 class="section-title">Our true <em>beliefs</em><br>for your benefit</h2></div>
+          <p class="section-intro__copy">These are not slogans. They shape who we work with, where we stay and how every day of a journey is composed.</p>
+        </div>
+        <div class="values-grid">
+          <article class="value-card reveal"><span class="value-card__icon">01</span><h3>Customer-centric</h3><p>Your curiosity, pace and comfort are the compass for every decision.</p></article>
+          <article class="value-card reveal" style="--delay:70ms"><span class="value-card__icon">02</span><h3>Sustainable travel</h3><p>Smaller groups and considered partners reduce the footprint of exploration.</p></article>
+          <article class="value-card reveal" style="--delay:140ms"><span class="value-card__icon">03</span><h3>Authentic encounters</h3><p>Travel beyond the obvious and meet a place through its people and rituals.</p></article>
+          <article class="value-card reveal" style="--delay:210ms"><span class="value-card__icon">04</span><h3>Quality guides</h3><p>Knowledgeable local experts turn a route into a story you can inhabit.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="editorial-image">
+      <div class="editorial-image__content shell reveal">
+        <h2>Our journey,<br><em>in motion.</em></h2>
+        <a class="editorial-image__play" href="gallery.html" aria-label="Open the gallery">VIEW<br>STORIES</a>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="shell">
+        <span class="eyebrow reveal">Voices from the road</span>
+        <div class="testimonial-layout">
+          <div class="testimonial-aside reveal">
+            <span class="testimonial-count" data-testimonial-count>01 / 03</span>
+            <div class="testimonial-controls"><button class="circle-button" data-testimonial-prev aria-label="Previous story">←</button><button class="circle-button" data-testimonial-next aria-label="Next story">→</button></div>
+          </div>
+          <div data-testimonial-track>
+            <article class="testimonial-card"><div class="testimonial-mark">“</div><p class="testimonial-quote">The itinerary had structure without ever feeling rigid. We returned with stories, not a checklist.</p><div class="testimonial-person"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="Portrait of Priya"><div><strong>Priya Marcella</strong><span>India · travelled to Bali</span></div></div></article>
+            <article class="testimonial-card"><div class="testimonial-mark">“</div><p class="testimonial-quote">Our guide made the landscape legible — its history, humour and quiet details came alive.</p><div class="testimonial-person"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Portrait of Jose"><div><strong>Jose Miguel</strong><span>Spain · travelled to Nepal</span></div></div></article>
+            <article class="testimonial-card"><div class="testimonial-mark">“</div><p class="testimonial-quote">It felt personal from the first conversation. Every place had enough room to breathe.</p><div class="testimonial-person"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Portrait of Angellina"><div><strong>Angellina Diana</strong><span>Italy · travelled to Kenya</span></div></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey-cta">
+      <div class="journey-cta__inner shell">
+        <h2 class="reveal">Ready to <em>embark</em><br>on a new<br><em>journey?</em></h2>
+        <div class="journey-cta__copy reveal"><p>Tell us where your imagination keeps returning. We will turn the first idea into a considered route.</p><form class="inline-form" data-demo-form novalidate><div class="inline-form__row"><label class="sr-only" for="home-email">Email address</label><input id="home-email" type="email" placeholder="Your email address" required><button type="submit" aria-label="Validate email">↗</button></div><p class="form-status" data-form-status aria-live="polite"></p></form></div>
+      </div>
+    </section>
+  </main>
+  <site-footer></site-footer>
+  <script type="module" src="js/components.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
+
