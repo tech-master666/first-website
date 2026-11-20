@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Ma+Shan+Zheng&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
 
 :root {
   --ink: #11110f;
@@ -134,6 +134,13 @@ h1, h2, h3 { font-weight: 400; }
 .testimonial-person img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; filter: grayscale(1); }
 .testimonial-person strong, .testimonial-person span { display: block; }
 .testimonial-person span { color: var(--muted); font-size: 13px; }
+/* 中文评价区（字体 E：马善政） */
+.testimonial-count, .testimonial-mark { font-family: "Ma Shan Zheng", var(--serif); }
+.testimonial-quote { font-family: "Ma Shan Zheng", var(--serif); font-size: clamp(34px, 4vw, 54px); line-height: 1.4; letter-spacing: 0; }
+.testimonial-person img { filter: none; }
+.testimonial-sticker { width: 44px; height: 44px; object-fit: cover; border-radius: 9px; vertical-align: -8px; margin-left: 8px; }
+.testimonial-quote--fit { width: fit-content; }
+.testimonial-sign { display: block; margin-top: 10px; font-size: .62em; text-align: right; }
 .journey-cta { position: relative; padding-block: clamp(90px, 13vw, 190px); overflow: hidden; color: var(--white); background: var(--ink); }
 .journey-cta::before { position: absolute; top: -40%; right: -8%; width: 58vw; height: 58vw; min-width: 560px; min-height: 560px; border: 1px solid rgba(255,255,255,.12); border-radius: 50%; box-shadow: 0 0 0 80px rgba(255,255,255,.02), 0 0 0 160px rgba(255,255,255,.02); content: ""; }
 .journey-cta__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 80px; align-items: end; }
