@@ -91,6 +91,25 @@
       </div>
     </section>
 
+    <!-- 留言墙：访客自己填昵称写留言，数据在腾讯云开发 -->
+    <section class="section">
+      <div class="shell">
+        <span class="eyebrow reveal">留言墙</span>
+        <div class="gb-head reveal">
+          <h2>路过的话，<br><em>留一句话再走。</em></h2>
+          <p class="gb-sub">填个昵称就能写，写完立刻上墙；自己写的能删，别人的动不了。</p>
+        </div>
+        <form class="gb-form reveal" data-gb-form>
+          <input class="gb-input" data-gb-name maxlength="20" placeholder="你的昵称" autocomplete="off">
+          <textarea class="gb-input gb-text" data-gb-content maxlength="300" rows="3" placeholder="想说的话（最多 300 字）"></textarea>
+          <button class="button button--dark" type="submit">写上墙</button>
+        </form>
+        <div class="gb-list reveal" data-gb-list>
+          <p class="gb-empty">留言加载中…</p>
+        </div>
+      </div>
+    </section>
+
     <section class="journey-cta">
       <div class="journey-cta__inner shell">
         <h2 class="reveal">Ready to <em>embark</em><br>on a new<br><em>journey?</em></h2>
@@ -101,6 +120,7 @@
   <site-footer></site-footer>
   <script type="module" src="js/components.js"></script>
   <script type="module" src="js/main.js"></script>
+  <script src="js/guestbook.js" defer></script>
 </body>
 </html>
 
