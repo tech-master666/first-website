@@ -59,7 +59,8 @@ async function gbLoadSlides() {
   try { out = await gbCall({ action: 'list' }); } catch { return; }
   if (!out.ok) return;
   gbTrack.querySelectorAll('.gb-msg').forEach(el => el.remove());
-  out.items.forEach(it => gbTrack.append(gbMakeSlide(it)));
+  const formCard = gbTrack.querySelector('.testimonial-card--form');
+  out.items.forEach(it => gbTrack.insertBefore(gbMakeSlide(it), formCard));
   window.testimonialShow?.(0);
 }
 
