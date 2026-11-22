@@ -61,15 +61,17 @@ document.querySelectorAll("[data-demo-form]").forEach(form => {
 
 const testimonialTrack = document.querySelector("[data-testimonial-track]");
 if (testimonialTrack) {
-  const cards = [...testimonialTrack.children];
+  const getCards = () => [...testimonialTrack.children];
   let active = 0;
   const show = next => {
+    const cards = getCards();
     active = (next + cards.length) % cards.length;
     cards.forEach((card, index) => card.classList.toggle("is-active", index === active));
     document.querySelector("[data-testimonial-count]").textContent = `${String(active + 1).padStart(2, "0")} / ${String(cards.length).padStart(2, "0")}`;
   };
   document.querySelector("[data-testimonial-prev]")?.addEventListener("click", () => show(active - 1));
   document.querySelector("[data-testimonial-next]")?.addEventListener("click", () => show(active + 1));
+  window.testimonialShow = show;
   show(0);
 }
 

@@ -269,21 +269,14 @@ h1, h2, h3 { font-weight: 400; }
   .reveal { opacity: 1; transform: none; }
 }
 
-/* 留言墙 */
-.gb-head h2 { font-family: var(--serif); font-size: clamp(38px, 5vw, 64px); line-height: 1.02; letter-spacing: -.03em; }
-.gb-head h2 em { font-style: italic; font-weight: 400; }
-.gb-sub { margin-top: 12px; color: var(--muted); }
-.gb-form { display: grid; gap: 12px; max-width: 640px; margin-top: 28px; }
+/* 留言墙（轮播内的卡） */
+.gb-form { display: grid; gap: 12px; max-width: 560px; }
+.gb-form-title { font-family: var(--serif); font-size: 30px; letter-spacing: -.01em; }
 .gb-input { width: 100%; border: 1px solid var(--line); border-radius: 10px; background: #fffdf8; padding: 12px 14px; font: inherit; font-size: 15px; color: var(--ink); }
 .gb-input:focus { outline: 2px solid var(--ink); outline-offset: 1px; }
 .gb-text { resize: vertical; }
-.gb-form .button { justify-self: start; cursor: pointer; }
-.gb-list { display: grid; gap: 14px; max-width: 760px; margin-top: 34px; }
-.gb-item { position: relative; border: 1px solid var(--line); border-radius: 14px; background: #fffdf8; padding: 16px 18px; }
-.gb-item header { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
-.gb-item header strong { font-size: 15px; }
-.gb-item time { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
-.gb-item p { margin-top: 8px; line-height: 1.65; overflow-wrap: anywhere; }
-.gb-del { margin-top: 10px; border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 4px 12px; font-size: 12.5px; color: var(--muted); cursor: pointer; }
+.gb-form .button { justify-self: start; cursor: pointer; font: inherit; border: 0; background: var(--ink); color: var(--white); padding: 12px 24px; border-radius: 999px; font-size: 14.5px; }
+.gb-hint { color: var(--muted); font-size: 13.5px; line-height: 1.6; }
+.gb-msg .testimonial-quote { font-size: clamp(26px, 3vw, 40px); }
+.gb-del { margin-top: 14px; border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 4px 12px; font-size: 12.5px; color: var(--muted); cursor: pointer; }
 .gb-del:hover { color: #b3261e; border-color: #b3261e; }
-.gb-empty { color: var(--muted); }
