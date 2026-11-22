@@ -16,8 +16,8 @@ class SiteHeader extends HTMLElement {
     ];
     this.innerHTML = `
       <header class="site-header ${light ? "site-header--light" : ""}" data-header>
-        <a class="brand" href="index.html" aria-label="Xplore home">
-          <span class="brand-mark">X</span><span>XPLORE</span>
+        <a class="brand" href="index.html" aria-label="ACTION home">
+          <span class="brand-mark">A</span><span>ACTION</span>
         </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
           <span></span><span></span><span class="sr-only">Toggle menu</span>
@@ -36,7 +36,7 @@ class SiteFooter extends HTMLElement {
       <footer class="site-footer">
         <div class="footer-top shell">
           <div class="footer-brand">
-            <a class="brand brand--footer" href="index.html"><span class="brand-mark">X</span><span>XPLORE</span></a>
+            <a class="brand brand--footer" href="index.html"><span class="brand-mark">A</span><span>ACTION</span></a>
             <p>Journeys made for people who want to feel a place, not simply pass through it.</p>
           </div>
           <div class="footer-column"><span class="eyebrow">Discover</span><a href="about.html">About us</a><a href="packages.html">Trip packages</a><a href="gallery.html">Gallery</a></div>
