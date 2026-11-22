@@ -21,7 +21,7 @@ async function gbCall(payload) {
 
 function gbMakeSlide(it) {
   const card = document.createElement('article');
-  card.className = 'testimonial-card gb-msg';
+  card.className = 'testimonial-card gb-msg' + (it.content.length > 42 ? ' gb-msg--long' : '');
   const mark = document.createElement('div');
   mark.className = 'testimonial-mark';
   mark.textContent = '“';
@@ -30,13 +30,16 @@ function gbMakeSlide(it) {
   quote.textContent = it.content;
   const person = document.createElement('div');
   person.className = 'testimonial-person';
+  const avatar = document.createElement('div');
+  avatar.className = 'gb-avatar';
+  avatar.textContent = (it.name || '？').slice(0, 1);
   const meta = document.createElement('div');
   const name = document.createElement('strong');
   name.textContent = it.name;
   const when = document.createElement('span');
   when.textContent = new Date(it.createdAt).toLocaleString('zh-CN', { hour12: false });
   meta.append(name, when);
-  person.append(meta);
+  person.append(avatar, meta);
   card.append(mark, quote, person);
   if (it.mine) {
     const del = document.createElement('button');
@@ -58,10 +61,12 @@ async function gbLoadSlides() {
   let out;
   try { out = await gbCall({ action: 'list' }); } catch { return; }
   if (!out.ok) return;
+  const activeEl = gbTrack.querySelector('.testimonial-card.is-active');
   gbTrack.querySelectorAll('.gb-msg').forEach(el => el.remove());
   const formCard = gbTrack.querySelector('.testimonial-card--form');
   out.items.forEach(it => gbTrack.insertBefore(gbMakeSlide(it), formCard));
-  window.testimonialShow?.(0);
+  const idx = activeEl ? [...gbTrack.children].indexOf(activeEl) : 0;
+  window.testimonialShow?.(idx < 0 ? 0 : idx);
 }
 
 document.querySelector('[data-gb-form]')?.addEventListener('submit', async (e) => {
