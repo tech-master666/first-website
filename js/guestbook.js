@@ -59,8 +59,11 @@ function gbMakeSlide(it) {
 
 async function gbLoadSlides() {
   let out;
-  try { out = await gbCall({ action: 'list' }); } catch { return; }
-  if (!out.ok) return;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try { out = await gbCall({ action: 'list' }); break; }
+    catch { if (attempt < 2) await new Promise(r => setTimeout(r, 1500)); }
+  }
+  if (!out || !out.ok) return;
   const activeEl = gbTrack.querySelector('.testimonial-card.is-active');
   gbTrack.querySelectorAll('.gb-msg').forEach(el => el.remove());
   const formCard = gbTrack.querySelector('.testimonial-card--form');
