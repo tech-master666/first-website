@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Ma+Shan+Zheng&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
 
 :root {
   --ink: #11110f;
@@ -277,7 +277,7 @@ h1, h2, h3 { font-weight: 400; }
 .gb-text { resize: vertical; }
 .gb-form .button { justify-self: start; cursor: pointer; font: inherit; border: 0; background: var(--ink); color: var(--white); padding: 12px 24px; border-radius: 999px; font-size: 14.5px; }
 .gb-hint { color: var(--muted); font-size: 13.5px; line-height: 1.6; }
-.gb-msg .testimonial-quote { font-size: clamp(24px, 2.6vw, 34px); line-height: 1.55; white-space: pre-wrap; }
+.gb-msg .testimonial-quote { font-family: "Noto Serif SC", "Songti SC", serif; font-weight: 500; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.55; white-space: pre-wrap; }
 .gb-msg--long .testimonial-quote { font-size: 23px; line-height: 1.65; }
 .gb-avatar { width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; background: #e7e1d3; color: #4a4436; font-family: "Noto Serif SC", "Songti SC", serif; font-size: 22px; line-height: 1; flex: none; }
 .gb-del { margin-top: 14px; border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 4px 12px; font-size: 12.5px; color: var(--muted); cursor: pointer; }
