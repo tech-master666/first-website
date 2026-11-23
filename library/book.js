@@ -9,30 +9,72 @@ document.querySelector("#reader-title").textContent = title;
 
 const photos = book?.pages ?? [];
 
-if (!book || photos.length === 0) {
+function coverMarkup(book) {
+  if (book.cover === "vertical") {
+    return `<div class="cv-orig">${book.orig}</div>` +
+      `<div class="cv-title">${book.title}</div>` +
+      `<div class="cv-author">${book.authorLines.join("<br>")}</div>`;
+  }
+  if (book.cover === "minimal") {
+    return `<div class="cm-title">${book.titleLines.join("<br>")}</div>` +
+      `<div class="cm-rule"></div>` +
+      `<div class="cm-author">${book.author}</div>` +
+      `<div class="cm-circle"></div>` +
+      `<div class="cm-orig">${book.orig}</div>`;
+  }
+  if (book.cover === "bold") {
+    const lines = book.titleLines.map((line, i) =>
+      i === book.titleLines.length - 1 ? `<span class="cb-red">${line}</span>` : line);
+    return `<div class="cb-title">${lines.join("<br>")}</div>` +
+      `<div class="cb-author">${book.author}</div>` +
+      `<div class="cb-tag">${book.tag}</div>`;
+  }
+  return "";
+}
+
+function buildCover(book) {
+  const cover = document.createElement("article");
+  cover.className = "book-page cover-page";
+  cover.dataset.density = "hard";
+  const inner = document.createElement("div");
+  inner.className = `cover-inner cover-inner--${book.cover ?? "plain"}`;
+  if (book.cover === "photo") {
+    const img = document.createElement("img");
+    img.className = "cover-photo";
+    img.src = PHOTOS[book.pages[0]] ?? "";
+    img.alt = "";
+    inner.appendChild(img);
+    const caption = document.createElement("div");
+    caption.className = "cover-photo-title";
+    caption.innerHTML = `<div class="cpt-big">${book.title}</div><div class="cpt-sub">摄影集</div>`;
+    inner.appendChild(caption);
+  } else if (book.cover) {
+    inner.style.background = book.coverPaper ?? book.paper;
+    inner.style.color = book.coverInk ?? book.ink;
+    inner.innerHTML = coverMarkup(book);
+  } else {
+    inner.style.background = book.paper;
+    inner.style.color = book.ink;
+    const coverTitle = document.createElement("div");
+    coverTitle.className = "cover-title";
+    coverTitle.textContent = book.title;
+    inner.appendChild(coverTitle);
+  }
+  cover.appendChild(inner);
+  return cover;
+}
+
+if (!book) {
   document.querySelector("#empty-state").hidden = false;
-  document.querySelector("#empty-title").textContent = book ? "Empty book" : title;
-  document.querySelector("#empty-description").textContent = book
-    ? "No pages yet."
-    : "Return to the library to choose a book.";
+  document.querySelector("#empty-title").textContent = title;
+  document.querySelector("#empty-description").textContent =
+    "Return to the library to choose a book.";
 } else {
   document.querySelector("#reader").hidden = false;
 
   const bookElement = document.querySelector("#book");
 
-  const cover = document.createElement("article");
-  cover.className = "book-page cover-page";
-  cover.dataset.density = "hard";
-  const coverInner = document.createElement("div");
-  coverInner.className = "cover-inner";
-  coverInner.style.background = book.paper;
-  coverInner.style.color = book.ink;
-  const coverTitle = document.createElement("div");
-  coverTitle.className = "cover-title";
-  coverTitle.textContent = book.title;
-  coverInner.appendChild(coverTitle);
-  cover.appendChild(coverInner);
-  bookElement.appendChild(cover);
+  bookElement.appendChild(buildCover(book));
 
   const pendingPhotos = new Map();
   photos.forEach((src, i) => {

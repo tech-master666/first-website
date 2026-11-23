@@ -29,6 +29,7 @@
 }
 
 .cover-inner {
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -42,6 +43,120 @@
   font-weight: 400;
   line-height: 1.15;
 }
+
+/* 成色 — photo cover */
+.cover-inner--photo { padding: 0; display: block; background: #101408; }
+.cover-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cover-photo-title { position: absolute; left: 26px; bottom: 24px; color: #fff; }
+.cpt-big {
+  font-family: "Noto Serif SC", "Songti SC", Georgia, serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.35em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+}
+.cpt-sub { font-size: 0.8rem; letter-spacing: 0.5em; margin-top: 8px; opacity: 0.85; }
+
+/* 百年孤独 — vertical classic */
+.cover-inner--vertical { padding: 0; display: block; }
+.cover-inner--vertical::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid currentColor;
+  opacity: 0.45;
+  pointer-events: none;
+}
+.cover-inner--vertical::after {
+  content: "";
+  position: absolute;
+  inset: 24px;
+  border: 1px solid currentColor;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.cv-orig {
+  position: absolute;
+  top: 52px;
+  left: 42px;
+  font-family: Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  opacity: 0.75;
+}
+.cv-title {
+  position: absolute;
+  top: 60px;
+  right: 50px;
+  writing-mode: vertical-rl;
+  font-family: "Noto Serif SC", "Songti SC", Georgia, serif;
+  font-size: 3.9rem;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+.cv-author {
+  position: absolute;
+  left: 42px;
+  bottom: 48px;
+  font-size: 0.92rem;
+  line-height: 2;
+  letter-spacing: 0.12em;
+}
+
+/* 西西弗斯神话 — minimal */
+.cover-inner--minimal { padding: 0; display: block; }
+.cm-title {
+  position: absolute;
+  top: 52px;
+  left: 40px;
+  font-family: "Noto Serif SC", "Songti SC", Georgia, serif;
+  font-size: 2.05rem;
+  letter-spacing: 0.3em;
+  line-height: 1.9;
+}
+.cm-rule { position: absolute; top: 246px; left: 40px; width: 64px; height: 2px; background: currentColor; }
+.cm-author { position: absolute; top: 270px; left: 40px; font-size: 0.92rem; letter-spacing: 0.2em; opacity: 0.75; }
+.cm-circle {
+  position: absolute;
+  right: 56px;
+  bottom: 110px;
+  width: 74px;
+  height: 74px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+.cm-orig {
+  position: absolute;
+  left: 40px;
+  bottom: 44px;
+  font-family: Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  opacity: 0.55;
+}
+
+/* 如何杀死我最好的朋友 — bold black */
+.cover-inner--bold { padding: 0; display: block; font-family: "Noto Sans SC", "PingFang SC", sans-serif; }
+.cover-inner--bold::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background: #d43a2f;
+}
+.cb-title {
+  position: absolute;
+  top: 64px;
+  left: 38px;
+  font-weight: 900;
+  font-size: 3.35rem;
+  line-height: 1.28;
+  letter-spacing: 0.04em;
+}
+.cb-red { color: #d43a2f; }
+.cb-author { position: absolute; left: 38px; bottom: 96px; font-size: 1.05rem; letter-spacing: 0.4em; }
+.cb-tag { position: absolute; left: 38px; bottom: 56px; font-size: 0.8rem; letter-spacing: 0.24em; opacity: 0.6; }
 
 .page-number {
   position: absolute;

@@ -93,7 +93,7 @@ button { font: inherit; }
 .volume {
   position: relative;
   flex: none;
-  width: clamp(36px, 3vw, 48px);
+  width: calc(clamp(36px, 3vw, 48px) * var(--width, 1));
   height: calc((max(600px, 100svh) - var(--preview-space) - var(--header-clearance)) * var(--height));
   min-height: 120px;
 }
@@ -135,6 +135,51 @@ button { font: inherit; }
   white-space: nowrap;
   font-weight: 400;
   letter-spacing: 0.01em;
+}
+
+.binding__title--top { top: 9%; }
+
+.binding__title--bold {
+  font-family: "Noto Sans SC", "PingFang SC", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.binding__bands {
+  position: absolute;
+  top: 10px;
+  left: 7px;
+  right: 7px;
+  height: 5px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  opacity: 0.65;
+}
+
+.binding__band-foot {
+  position: absolute;
+  bottom: 36px;
+  left: 6px;
+  right: 6px;
+  border-top: 1px solid var(--ink);
+  opacity: 0.6;
+}
+
+.binding__foot {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  writing-mode: vertical-rl;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  opacity: 0.85;
+}
+
+.binding--accent {
+  box-shadow: inset 5px 0 0 var(--accent), inset 1px 0 0 #ffffff24, inset -1px 0 0 #0004;
 }
 
 .volume__link:hover .binding,

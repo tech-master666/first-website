@@ -20,12 +20,13 @@ for (const [index, book] of books.entries()) {
   volume.style.setProperty("--paper", book.paper);
   volume.style.setProperty("--ink", book.ink);
   volume.style.setProperty("--height", book.height);
+  volume.style.setProperty("--width", book.width ?? 1);
 
   const link = document.createElement("a");
   link.className = "volume__link";
   link.href = bookUrl(book.id);
   link.draggable = false;
-  link.setAttribute("aria-label", `${book.title} — empty book`);
+  link.setAttribute("aria-label", book.pages.length ? book.title : `${book.title} — empty book`);
   link.setAttribute("aria-describedby", "shelf-help");
   link.setAttribute("aria-keyshortcuts", "Shift+ArrowLeft Shift+ArrowRight Shift+Home Shift+End");
   link.dataset.title = book.title;
@@ -34,10 +35,32 @@ for (const [index, book] of books.entries()) {
   const binding = document.createElement("span");
   binding.className = "binding";
   binding.setAttribute("aria-hidden", "true");
+  if (book.accent) {
+    binding.classList.add("binding--accent");
+    binding.style.setProperty("--accent", book.accent);
+  }
+  if (book.bands) {
+    const bands = document.createElement("span");
+    bands.className = "binding__bands";
+    binding.append(bands);
+  }
   const title = document.createElement("span");
   title.className = "binding__title";
+  if (book.titlePos === "top") title.classList.add("binding__title--top");
+  if (book.bold) title.classList.add("binding__title--bold");
   title.textContent = book.title;
   binding.append(title);
+  if (book.bandFoot) {
+    const band = document.createElement("span");
+    band.className = "binding__band-foot";
+    binding.append(band);
+  }
+  if (book.foot) {
+    const foot = document.createElement("span");
+    foot.className = "binding__foot";
+    foot.textContent = book.foot;
+    binding.append(foot);
+  }
   link.append(binding);
   volume.append(link);
   shelf.append(volume);
