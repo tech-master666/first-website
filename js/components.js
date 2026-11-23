@@ -11,6 +11,7 @@ class SiteHeader extends HTMLElement {
     const links = [
       ["packages.html", "Trips"],
       ["gallery.html", "Gallery"],
+      ["library/index.html", "Library"],
       ["about.html", "About"],
       ["contact.html", "Contact"]
     ];

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080909" />
+    <meta name="description" content="A photobook in the photo library." />
+    <title>Book — Photo Books Library</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="book.css" />
+    <link rel="stylesheet" href="flip.css" />
+    <script src="vendor/page-flip.browser.js"></script>
+    <script type="module" src="book.js"></script>
+  </head>
+  <body>
+    <header class="reader-header">
+      <a href="./index.html">← Library</a>
+      <span id="reader-title"></span>
+    </header>
+    <main class="empty-book" id="empty-state" hidden>
+      <h1 id="empty-title">Empty book</h1>
+      <p id="empty-description">No pages yet.</p>
+    </main>
+    <main class="reader" id="reader" hidden>
+      <section class="stage" aria-label="Interactive photo book">
+        <div id="book" class="book" data-page-width="471" data-page-height="640"></div>
+      </section>
+      <footer class="controls" aria-label="Book controls">
+        <button id="previous" type="button" aria-label="Previous page">&larr;</button>
+        <div class="status" aria-live="polite">
+          <span id="page-status">Cover</span>
+          <small>Drag, swipe, click a corner, or use arrow keys</small>
+        </div>
+        <button id="next" type="button" aria-label="Next page">&rarr;</button>
+      </footer>
+    </main>
+    <noscript>Enable JavaScript to read this book.</noscript>
+  </body>
+</html>
