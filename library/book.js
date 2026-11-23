@@ -34,11 +34,17 @@ if (!book || photos.length === 0) {
   cover.appendChild(coverInner);
   bookElement.appendChild(cover);
 
+  const pendingPhotos = new Map();
   photos.forEach((src, i) => {
     const page = document.createElement("article");
     page.className = "book-page photo-page";
     const img = document.createElement("img");
-    img.src = PHOTOS[src] ?? src;
+    if (PHOTOS[src]) {
+      img.src = PHOTOS[src];
+    } else {
+      img.src = "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
+      pendingPhotos.set(src, img);
+    }
     img.alt = `${book.title} — photo ${i + 1}`;
     page.appendChild(img);
     const num = document.createElement("p");
@@ -114,6 +120,15 @@ if (!book || photos.length === 0) {
   });
 
   pageFlip.loadFromHTML(bookElement.querySelectorAll(".book-page"));
+  if (pendingPhotos.size) {
+    import("./photos-rest.js")
+      .then(({ PHOTOS_REST }) => {
+        pendingPhotos.forEach((img, key) => {
+          if (PHOTOS_REST[key]) img.src = PHOTOS_REST[key];
+        });
+      })
+      .catch(() => {});
+  }
   updateControls();
 
   const at = Number(new URLSearchParams(window.location.search).get("at"));
